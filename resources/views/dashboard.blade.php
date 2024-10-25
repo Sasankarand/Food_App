@@ -1,4 +1,5 @@
 <x-app-layout>
+<<<<<<< HEAD
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
@@ -12,4 +13,7 @@
             </div>
         </div>
     </div>
+=======
+<h1>User page</h1>
+>>>>>>> eaf8ae42ba4318e74d831147b82b681acbcba7d6
 </x-app-layout>
