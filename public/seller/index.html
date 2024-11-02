@@ -7,7 +7,7 @@
 
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
-	<link rel="stylesheet" href="seller/source/style.css">
+	<link rel="stylesheet" href="source/style.css">
 
 	<title>UniFood</title>
 </head>
@@ -22,31 +22,31 @@
 		</a>
 		<ul class="side-menu top">
 			<li class="active">
-				<a href="{{url('/sellerdashboard')}}">
+				<a href="index.html">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="text">Seller Dashboard</span>
 				</a>
 			</li>
 			<li>
-				<a href="{{url('/addnewfood')}}">
+				<a href="add_food.html">
 					<i class='bx bxs-shopping-bag-alt' ></i>
 					<span class="text">Add new food</span>
 				</a>
 			</li>
 			<li>
-				<a href="{{url('/orders')}}">
+				<a href="order.html">
 					<i class='bx bxs-calendar-check' ></i>
 					<span class="text">Orders</span>
 				</a>
 			</li>
 			<li>
-				<a href="{{url('/wallet')}}">
+				<a href="wallet.html">
 					<i class='bx bxs-dollar-circle' ></i>
 					<span class="text">Wallet</span>
 				</a>
 			</li>
 			<li>
-				<a href="{{url('/myfoods')}}">
+				<a href="my_foods.html">
 					<i class='bx bxs-food-menu'></i>
 					<span class="text">My Foods</span>
 				</a>
@@ -67,12 +67,14 @@
 					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
 				</div>
 			</form>
-			<x-app-layout></x-app-layout>
-			<a href="#" class="profile">
-                <img src="seller/source/download.jpg">
-			</a>
-			<a href="" class="notification">
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="notification">
 				<i class='bx bxs-bell' ></i>
+				<span class="num">8</span>
+			</a>
+			<a href="#" class="profile">
+				<img src="source/download.jpg">
 			</a>
 		</nav>
 
@@ -89,35 +91,35 @@
 			<div>
 				<section class="food-gallery">
 					<div class="food-card">
-					  <img src="seller/source/food1.jpg" alt="Food Item 1">
+					  <img src="source/food1.jpg" alt="Food Item 1">
 					  <p>Chicken Rice </p>
 					</div>
 					<div class="food-card">
-					  <img src="seller/source/food2.jpg" alt="Food Item 2">
+					  <img src="source/food2.jpg" alt="Food Item 2">
 					  <p>Hoppers & Curry</p>
 					</div>
 					<div class="food-card">
-					  <img src="seller/source/food3.jpg" alt="Food Item 3">
+					  <img src="source/food3.jpg" alt="Food Item 3">
 					  <p>String Hoppers</p>
 					</div>
 					<div class="food-card">
-						<img src="seller/source/food4.jpg" alt="Food Item 4">
+						<img src="source/food4.jpg" alt="Food Item 4">
 						<p>Kothtu</p>
 					  </div>
 					  <div class="food-card">
-						<img src="seller/source/food5.jpg" alt="Food Item 5">
+						<img src="source/food5.jpg" alt="Food Item 5">
 						<p>Cheese Koththu</p>
 					  </div>
 					  <div class="food-card">
-						<img src="seller/source/food6.jpg" alt="Food Item 6">
+						<img src="source/food6.jpg" alt="Food Item 6">
 						<p>Rice & curry</p>
 					  </div>
 					  <div class="food-card">
-						<img src="seller/source/food7.jpg" alt="Food Item 7">
+						<img src="source/food7.jpg" alt="Food Item 7">
 						<p>Short Eats</p>
 					  </div>
 					  <div class="food-card">
-						<img src="seller/source/food8.jpg" alt="Food Item 8">
+						<img src="source/food8.jpg" alt="Food Item 8">
 						<p>Egg Rice</p>
 					  </div>
 				  </section>
@@ -129,7 +131,6 @@
 
 
 
-	<script src="seller/source/script.js"></script>
+	<script src="source/script.js"></script>
 </body>
 </html>
-
