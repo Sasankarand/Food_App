@@ -21,7 +21,7 @@ class HomeController extends Controller
             return view("seller.sellerhome");
         }
         else{
-            return view(view:"dashboard");
+            return view(view:"user.userdashboard");
         }
 
 }

@@ -21,13 +21,13 @@
 			<span class="text">UniFood</span>
 		</a>
 		<ul class="side-menu top">
-			<li class="active">
+			<li>
 				<a href="{{url('/sellerdashboard')}}">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="text">Seller Dashboard</span>
 				</a>
 			</li>
-			<li>
+			<li class="active">
 				<a href="{{url('/addnewfood')}}">
 					<i class='bx bxs-shopping-bag-alt' ></i>
 					<span class="text">Add new food</span>
@@ -56,9 +56,12 @@
 	</section>
 
 
+
+
+
 	<section id="content">
 
-		<nav>
+        <nav>
 			<i class='bx bx-menu' ></i>
 			<a href="#" class="nav-link">Categories</a>
 			<form action="#">
@@ -79,57 +82,48 @@
 
 
 		<main>
-			<div class="head-title">
-				<div class="left">
-					<h1>Seller Dashboard</h1>
-
-				</div>
+            <div>
+                <div class="head-title">
+                    <div class="left">
+                        <h1>Add New Food</h1>
+                        <ul class="breadcrumb">
+                            <li>
+                                <a href="add_food.html">Add New Item</a>
+                            </li>
+                            <li><i class='bx bx-chevron-right' ></i></li>
+                            <li>
+                                <a class="active" href="{{url('/sellerdashboard')}}">Home</a>
+                            </li>
+                        </ul>
+                    </div>
 
 			</div>
-			<div>
-				<section class="food-gallery">
-					<div class="food-card">
-					  <img src="seller/source/food1.jpg" alt="Food Item 1">
-					  <p>Chicken Rice </p>
-					</div>
-					<div class="food-card">
-					  <img src="seller/source/food2.jpg" alt="Food Item 2">
-					  <p>Hoppers & Curry</p>
-					</div>
-					<div class="food-card">
-					  <img src="seller/source/food3.jpg" alt="Food Item 3">
-					  <p>String Hoppers</p>
-					</div>
-					<div class="food-card">
-						<img src="seller/source/food4.jpg" alt="Food Item 4">
-						<p>Kothtu</p>
-					  </div>
-					  <div class="food-card">
-						<img src="seller/source/food5.jpg" alt="Food Item 5">
-						<p>Cheese Koththu</p>
-					  </div>
-					  <div class="food-card">
-						<img src="seller/source/food6.jpg" alt="Food Item 6">
-						<p>Rice & curry</p>
-					  </div>
-					  <div class="food-card">
-						<img src="seller/source/food7.jpg" alt="Food Item 7">
-						<p>Short Eats</p>
-					  </div>
-					  <div class="food-card">
-						<img src="seller/source/food8.jpg" alt="Food Item 8">
-						<p>Egg Rice</p>
-					  </div>
-				  </section>
-				</div>
+            <div class="form-container">
+                <h1>Add New Food Item</h1>
+                <form action="{{url('/uploadfood')}}" method="post" enctype="multipart/form-data">
+
+                    @csrf
+
+                  <label for="itemName">Item Name:</label>
+                  <input type="text" name="foodname" required>
+
+                  <label for="description">Description:</label>
+                  <textarea id="description" name="description" rows="4" required></textarea>
+
+                  <label for="price">Price:</label>
+                  <input type="number" id="price" name="price" required>
+
+                  <label for="image">Image:</label>
+                  <input type="file" name="image" required>
+
+                  <button type="submit">OK</button>
+                </form>
+              </div>
 
 		</main>
 
 	</section>
 
-
-
-	<script src="seller/source/script.js"></script>
+    <script src="seller/source/script.js"></script>
 </body>
 </html>
-
