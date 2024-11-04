@@ -23,17 +23,14 @@
 
     <!-- Sidebar -->
     <nav class="sidebar">
-
         <div class="sidebar-menu">
             <span class="fas fa-home"></span>
             <a href="{{url('/userdashboard')}}">Home</a>
         </div>
-
         <div class="sidebar-menu">
             <span class="fas fa-search"></span>
             <a href="{{url('/explore')}}">Explore</a>
         </div>
-
         <div class="sidebar-menu">
             <span class="fas fa-heart"></span>
             <a href="#">Favs</a>
@@ -48,35 +45,35 @@
 
     <!-- Main Dashboard -->
     <div class="dashboard">
-        <div class="dashboard-banner">
-            <img src="Student(user)/images-banner.jpg" alt="Dashboard Banner">
+        <div class="dashboard-bannerr">
+            <img src="Sttudent(user)/images-banner.jpg" alt="Dashboard Banner">
         </div>
 
 
+        <div class="dashboard-menu">
+            <a href="#">Favorites</a>
+            <a href="#">Best Seller</a>
+            <a href="#">Near Me</a>
+            <a href="#">Promotion</a>
+            <a href="#">Top Rated</a>
+            <a href="#">All</a>
+        </div>
 
 
         <div class="dashboard-content">
 
-                            @foreach($data as $data)
-
-                            <form action="{{url('/addcart',$data->id)}}" method="post" class="dashboard-card">
-                                @csrf
-                                <button type="submit" style="all: unset; cursor: pointer; width: 100%;">
-                                    <div>
-                                        <img class="card-image" src="foodimage/{{$data->image}}" alt="Image of {{$data->name}}">
+                                @foreach ($data as $data)
+                                @if($data->usertype==2)
+                                    <div class="dashboard-card">
+                                        <img class="card-image" src="foodimage/{{$data->image}}">
                                         <div class="card-detail">
-                                            <h4>{{$data->name}} <span>Rs. {{$data->price}}.00</span></h4>
+                                            <h4>{{$data->name}}<span>{{$data->price}}</span></h4>
                                             <p>{{$data->description}}</p>
-                                            <p class="card-time"><span class="fas fa-clock"></span> {{ $data->vendor_name}}</p>
+                                            <p class="card-time"><span class="fas fa-clock"></span>{{$data->vendor_name}}</p>
                                         </div>
                                     </div>
-                                </button>
-                            </form>
-
-
-                            @endforeach
-
-
+                                @endif
+                                @endforeach
 
 
 
@@ -84,9 +81,7 @@
     </div>
 
     <!-- Order Dashboard -->
-
     @include('user.ordercart')
-    
 </body>
 </html>
 
