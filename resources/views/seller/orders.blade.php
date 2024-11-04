@@ -94,6 +94,8 @@
                     </div>
 
 			</div>
+
+            <!-- order details seller -->
             <div class="order-container">
                 <h1>Order Details</h1>
                 <table class="order-table">
@@ -103,35 +105,49 @@
                       <th>Customer Name</th>
                       <th>Food Item</th>
                       <th>Quantity</th>
+                      <th>Price_1_Potion</th>
                       <th>Total Price</th>
                       <th>Order Date</th>
                       <th>Status</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>001_Uni</td>
-                      <td>Sadali</td>
-                      <td>Chicken Rice</td>
-                      <td>2</td>
-                      <td>1000.00</td>
-                      <td>2024-10-26</td>
-                      <td class="status-pending">Pending</td>
-                    </tr>
-                    <tr>
-                      <td>002_Uni</td>
-                      <td>Chathuri</td>
-                      <td>Rice & Curry</td>
-                      <td>1</td>
-                      <td>150.00</td>
-                      <td>2024-10-26</td>
-                      <td class="status-delivered">Delivered</td>
-                    </tr>
 
+                    @foreach ($results as $results)
+                        <tr>
+                        <td>{{$results->id}}</td>
+                        <td>{{$results->user_name}}</td>
+                        <td>{{$results->food_name}}</td>
+                        <td>{{$results->quantity}}</td>
+                        <td>{{$results->price}}</td>
+                        <td>{{$results->quantity*$results->price}}</td>
+                        <td>{{$results->created_at}}</td>
+                        <td>
+                            <form action="{{url('/statuspass',$results->id)}}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <input type="hidden" name="status" value="success">
+                                <div class="button-box"> <!-- Wrap the button in a box -->
+                                    @if($results->status==null)
+                                        <button type="submit" class="btn btn-success">Done</button>
+                                        @else
+                                        {{$results->status}}
+                                    @endif
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                    @endforeach
+                    <tr>
                   </tbody>
 
                 </table>
               </div>
+              <!-- End of order details -->
+
+
+
+
+
 
 		</main>
 

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+use App\Models\Cart;
 use App\Models\Food;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,11 +20,30 @@ class SellerController extends Controller
     }
 
     public function orders(){
-        return view("seller.orders");
+        $vendor_id=Auth::user()->user_id;
+        $results = DB::table('carts')
+    ->join('users', 'carts.user_id', '=', 'users.id')
+    ->join('food', 'carts.food_id', '=', 'food.id')
+    ->select('users.name as user_name', 'food.name as food_name', 'food.vendor_name', 'food.price', 'food.image', 'carts.quantity','carts.created_at','carts.id','carts.status' ,'users.phone_number', 'users.street')
+    ->get();
+
+        return view("seller.orders",compact("results"));
     }
 
     public function wallet(){
-        return view("seller.wallet");
+        $vendor_id=Auth::user()->user_id;
+            $results = DB::table('carts')
+            ->join('users', 'carts.user_id', '=', 'users.id')
+            ->join('food', 'carts.food_id', '=', 'food.id')
+            ->select('users.name as user_name', 'food.name as food_name', 'food.vendor_name', 'food.price', 'food.image', 'carts.quantity','carts.created_at','carts.id','carts.status' ,'users.phone_number', 'users.street')
+            ->get();
+
+        $count = DB::table('carts')
+            ->join('users', 'carts.user_id', '=', 'users.id')
+            ->join('food', 'carts.food_id', '=', 'food.id')
+            ->where('carts.status', 'success') // Only rows where status is "success"
+            ->count();
+        return view("seller.wallet",compact("results","count"));
     }
 
     public function myfoods(){
@@ -70,6 +92,12 @@ class SellerController extends Controller
         $data->name=$request->foodname;
         $data->price=$request->price;
         $data->description=$request->description;
+        $data->save();
+        return redirect()->back();
+    }
+    public function statuspass($id){
+        $data=cart::find($id);
+        $data->status="Pending";
         $data->save();
         return redirect()->back();
     }

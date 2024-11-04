@@ -200,7 +200,7 @@ header nav {
 .order-container {
     margin: 20px auto;
     padding: 20px;
-    max-width: 900px;
+    max-width: 1200px;
 }
 
 .order-container h1 {
@@ -445,6 +445,19 @@ header nav {
 
 .dashboard-content {
     animation: fadeIn 0.5s ease; /* Fade-in effect for content */
+}
+
+.button-box {
+    border: 2px solid #28a745; /* Green border for the box */
+    padding: 10px; /* Padding around the button */
+    display: inline-block; /* Make the box fit the button */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f8f9fa; /* Light background color */
+    transition: background-color 0.3s; /* Transition effect */
+}
+
+.button-box:hover {
+    background-color: #e9ecef; /* Slightly darker on hover */
 }
 
 /* End of CSS */

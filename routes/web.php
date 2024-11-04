@@ -24,6 +24,7 @@ Route::get("/wallet",[SellerController::class,"wallet"]);
 Route::get("/myfoods",[SellerController::class,"myfoods"]);
     Route::post("/uploadfood",[SellerController::class,"upload"]);
     Route::post("/update/{id}",[SellerController::class,"update"]);
+    Route::post("/statuspass/{id}",[SellerController::class,"statuspass"]);
 Route::get("/deletefood/{id}",[SellerController::class,"deletefood"]);
 Route::get("/updatefood/{id}",[SellerController::class,"updatefood"]);
 

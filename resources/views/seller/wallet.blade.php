@@ -97,26 +97,32 @@
                     </div>
 
 			</div>
+            @php
+                $totalSales = 0; // Initialize total sales
+            @endphp
+
+                @foreach ($results as $results)
+            @php
+                $totalSales += $results->quantity * $results->price; // Calculate total for each sale and add to totalSales
+            @endphp
+                @endforeach
+
             <div class="wallet-container">
                 <h1>Wallet Details</h1>
 
 
                 <div class="wallet-summary">
-                  <div class="card">
-                    <h2>Total Sales</h2>
-                    <p>Rs:7,500.00</p>
-                  </div>
+                    <div class="card">
+                        <h2>Total Sales</h2>
+                            <p>Rs: {{ number_format($totalSales, 2) }}</p> <!-- Display formatted total sales -->
+                    </div>
                   <div class="card">
                     <h2>Orders Completed</h2>
-                    <p>15</p>
+                    <p>{{$count}}</p>
                   </div>
                   <div class="card">
                     <h2>Pending Payments</h2>
-                    <p>Rs:5000.00</p>
-                  </div>
-                  <div class="card">
-                    <h2>Refunds</h2>
-                    <p>Rs:2500.00</p>
+                    <p>1500</p>
                   </div>
                 </div>
 
