@@ -59,4 +59,18 @@ class SellerController extends Controller
         $data->delete();
         return redirect()->back();
     }
+
+    public function updatefood($id){
+        $data=food::find($id);
+        return view("seller.updatefood",compact("data"));
+    }
+
+    public function update(Request $request, $id){
+        $data=food::find($id);
+        $data->name=$request->foodname;
+        $data->price=$request->price;
+        $data->description=$request->description;
+        $data->save();
+        return redirect()->back();
+    }
 }

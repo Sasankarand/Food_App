@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <base href="/public">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -25,12 +26,6 @@
 				<a href="{{url('/sellerdashboard')}}">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="text">Seller Dashboard</span>
-				</a>
-			</li>
-			<li class="active">
-				<a href="{{url('/addnewfood')}}">
-					<i class='bx bxs-shopping-bag-alt' ></i>
-					<span class="text">Add new food</span>
 				</a>
 			</li>
 			<li>
@@ -85,11 +80,8 @@
             <div>
                 <div class="head-title">
                     <div class="left">
-                        <h1>Add New Food</h1>
+                        <h1>Update</h1>
                         <ul class="breadcrumb">
-                            <li>
-                                <a href="add_food.html">Add New Item</a>
-                            </li>
                             <li><i class='bx bx-chevron-right' ></i></li>
                             <li>
                                 <a class="active" href="{{url('/sellerdashboard')}}">Home</a>
@@ -99,24 +91,27 @@
 
 			</div>
             <div class="form-container">
-                <h1>Add New Food Item</h1>
-                <form action="{{url('/uploadfood')}}" method="post" enctype="multipart/form-data">
+                <h1>Update</h1>
+                <form action="{{url('/update',$data->id)}}" method="post" enctype="multipart/form-data">
 
                     @csrf
 
                   <label for="itemName">Item Name:</label>
-                  <input type="text" name="foodname" required>
+                  <input type="text" name="foodname" required value="{{$data->name}}">
 
                   <label for="description">Description:</label>
-                  <textarea name="description" rows="4" required></textarea>
+                  <input type="text" name="description" rows="4" value="{{$data->description}}" required>
 
                   <label for="price">Price:</label>
-                  <input type="number" id="price" name="price" required>
+                  <input type="number" id="price" name="price" value="{{$data->price}}" required>
 
-                  <label for="image">Image:</label>
-                  <input type="file" name="image" required>
+                  <label for="image"> New Image:</label>
+                  <input type="file" name="image">
 
-                  <button type="submit">OK</button>
+                  <label for="image"> Old Image:</label>
+                  <img height="200" width="200" src="/foodimage/{{$data->image}}">
+
+                  <button type="submit">Update</button>
                 </form>
               </div>
 

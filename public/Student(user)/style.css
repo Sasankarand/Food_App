@@ -163,6 +163,7 @@
 
 .dashboard-menu {
     display: flex;
+    margin-top: 50px;
     gap: 10px;
     padding: 0.3rem 1rem;
     overflow-x: auto;
@@ -194,6 +195,9 @@
 }
 
 .dashboard-card {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit the existing text color */
+    display: block;
     background-color: var(--mainColor);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     border-radius: 15px;
