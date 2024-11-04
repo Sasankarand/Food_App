@@ -28,6 +28,10 @@ class usercontroller extends Controller
         return view("user.explore",compact("data","city","street"));
     }
 
+    public function oders(){
+        return view("user.oders");
+    }
+
     public function addcart($id){
         $food_detail=food::find($id);
         return redirect()->back()->with('food_detail',$food_detail);
