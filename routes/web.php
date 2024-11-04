@@ -34,6 +34,7 @@ Route::get("/userdashboard",[usercontroller::class,"userdashboard"]);
 Route::get("/explore",[usercontroller::class,"explore"]);
     Route::post("/addcart/{id}",[usercontroller::class,"addcart"]);
     Route::post("/checkout/{data}",[usercontroller::class,"checkout"]);
+Route::get("/oders",[usercontroller::class,"oders"]);
 
 
 
