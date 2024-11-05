@@ -279,7 +279,7 @@
                   <li><a href="#"><span class="icon-linkedin"></span></a></li>
                   <li><a href="#"><span class="icon-instagram"></span></a></li>
                 </ul>
-                <img src="images/person_5.jpg" alt="Image" class="img-fluid">
+                <img src="Our Team/me.jpg" alt="Image" class="img-fluid">
               </figure>
               <div class="p-3">
                 <h3>Anjana Ariyasinghe</h3>
@@ -297,7 +297,7 @@
                   <li><a href="#"><span class="icon-linkedin"></span></a></li>
                   <li><a href="#"><span class="icon-instagram"></span></a></li>
                 </ul>
-                <img src="images/person_6.jpg" alt="Image" class="img-fluid">
+                <img src="Our Team/sasanka.jpg" alt="Image" class="img-fluid">
               </figure>
               <div class="p-3">
                 <h3>Sasanka Randula</h3>
@@ -315,7 +315,7 @@
                   <li><a href="#"><span class="icon-linkedin"></span></a></li>
                   <li><a href="#"><span class="icon-instagram"></span></a></li>
                 </ul>
-                <img src="images/person_7.jpg" alt="Image" class="img-fluid">
+                <img src="Our Team/dinesha.jpg" alt="Image" class="img-fluid">
               </figure>
               <div class="p-3">
                 <h3>Dinesha</h3>
@@ -333,7 +333,7 @@
                   <li><a href="#"><span class="icon-linkedin"></span></a></li>
                   <li><a href="#"><span class="icon-instagram"></span></a></li>
                 </ul>
-                <img src="images/person_8.jpg" alt="Image" class="img-fluid">
+                <img src="Our Team/keshani.jpg" alt="Image" class="img-fluid">
               </figure>
               <div class="p-3">
                 <h3>Keshani</h3>
@@ -351,10 +351,10 @@
                   <li><a href="#"><span class="icon-linkedin"></span></a></li>
                   <li><a href="#"><span class="icon-instagram"></span></a></li>
                 </ul>
-                <img src="images/person_1.jpg" alt="Image" class="img-fluid">
+                <img src="Our Team/malika.jpg" alt="Image" class="img-fluid">
               </figure>
               <div class="p-3">
-                <h3>Mali</h3>
+                <h3>Malika</h3>
                 <span class="position">Team Member</span>
               </div>
             </div>
@@ -369,7 +369,7 @@
                   <li><a href="#"><span class="icon-linkedin"></span></a></li>
                   <li><a href="#"><span class="icon-instagram"></span></a></li>
                 </ul>
-                <img src="images/person_2.jpg" alt="Image" class="img-fluid">
+                <img src="Our Team/dinith.jpg" alt="Image" class="img-fluid">
               </figure>
               <div class="p-3">
                 <h3>Dinith</h3>
@@ -387,7 +387,7 @@
                   <li><a href="#"><span class="icon-linkedin"></span></a></li>
                   <li><a href="#"><span class="icon-instagram"></span></a></li>
                 </ul>
-                <img src="images/person_3.jpg" alt="Image" class="img-fluid">
+                <img src="Our Team/naduni.jpg" alt="Image" class="img-fluid">
               </figure>
               <div class="p-3">
                 <h3>Naduni</h3>
@@ -405,7 +405,7 @@
                   <li><a href="#"><span class="icon-linkedin"></span></a></li>
                   <li><a href="#"><span class="icon-instagram"></span></a></li>
                 </ul>
-                <img src="images/person_4.jpg" alt="Image" class="img-fluid">
+                <img src="Our Team/nimesha.jpg" alt="Image" class="img-fluid">
               </figure>
               <div class="p-3">
                 <h3>Nimesha</h3>

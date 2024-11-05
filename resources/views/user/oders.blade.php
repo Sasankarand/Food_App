@@ -49,47 +49,57 @@
                       <th>Total Price</th>
                       <th>Seller</th>
                       <th>Status</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
+
+
+                    @foreach ($results as $results)
+
+
                     <tr>
-                      <td>2024-10-01</td>
-                      <td>001_Uni</td>
-                      <td>Chicken Rice</td>
-                      <td>2</td>
-                      <td>1000.00</td>
-                      <td>Sadali</td>
-                      <td class="status-pending">Pending</td>
+                      <td>{{$results->created_at}}</td>
+                      <td>{{$results->id}}</td>
+                      <td>{{$results->food_name}}</td>
+                      <td>{{$results->quantity}}</td>
+                      <td>Rs.{{$results->quantity*$results->price}}.00</td>
+                      <td>{{$results->vendor_name}}</td>
+                      <td>
+                        <form action="{{ url('/status_finalpass', $results->id) }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" name="status_finalpass" value="status_finalpass">
+                            <div class="button-boxx">
+                                @if($results->status == "Pending")
+                                    <button type="submit" class="btn btn-success animated-btnn">Delivered</button>
+                                @elseif($results->status == null)
+                                    Waiting
+                                @else
+                                    {{$results->status}}
+                                @endif
+                            </div>
+                        </form>
+                      </td>
+
+                      <td>
+                        <form action="{{ url('/cancelorder', $results->id) }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" name="status_finalpass" value="status_finalpass">
+                            <div class="button-box">
+                                @if($results->status == null)
+                                    <button type="submit" class="btn btn-success animated-btn">Cancel</button>
+                                @else
+                                    Can't Cancel Now!
+                                @endif
+                            </div>
+                        </form>
+
+                    </td>
+
+                      </td>
                     </tr>
-                    <tr>
-                      <td>2024-10-01</td>
-                      <td>001_Uni</td>
-                      <td>Chicken Rice</td>
-                      <td>2</td>
-                      <td>1000.00</td>
-                      <td>Sadali</td>
-                      <td class="status-pending">Pending</td>
-                    </tr>
-                    </tr>
-                    <tr>
-                      <td>2024-10-01</td>
-                      <td>001_Uni</td>
-                      <td>Chicken Rice</td>
-                      <td>2</td>
-                      <td>1000.00</td>
-                      <td>Sadali</td>
-                      <td class="status-pending">Pending</td>
-                    </tr>
-                    </tr>
-                    <tr>
-                      <td>2024-10-01</td>
-                      <td>001_Uni</td>
-                      <td>Chicken Rice</td>
-                      <td>2</td>
-                      <td>1000.00</td>
-                      <td>Sadali</td>
-                      <td class="status-pending">Pending</td>
-                    </tr>
+                    @endforeach
+
                     </tr>
 
                   </tbody>

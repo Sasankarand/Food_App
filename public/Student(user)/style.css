@@ -421,7 +421,7 @@
 }
 
 .order-table {
-    width: 100%;
+    width: 125%;
     border-collapse: collapse;
     margin-top: 20px;
 }
@@ -474,6 +474,56 @@
 .button-promo:hover {
     background-color: yellowgreen;
 }
+
+.button-box .animated-btn {
+    background: linear-gradient(45deg, #4caf50, #81c784); /* Initial gradient colors */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.4s ease, transform 0.2s ease;
+    outline: none;
+}
+
+/* Hover effect */
+.button-box .animated-btn:hover {
+    background: linear-gradient(45deg, #ff0000, #ff0000); /* Transition to different gradient */
+    transform: scale(1.05); /* Slightly scale up the button */
+}
+
+/* Focus effect */
+.button-box .animated-btn:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 128, 0, 0.5);
+}
+
+.button-boxx .animated-btnn {
+    background: linear-gradient(45deg, #8b8b8b, #81c784); /* Initial gradient colors */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.4s ease, transform 0.2s ease;
+    outline: none;
+}
+
+/* Hover effect */
+.button-boxx .animated-btnn:hover {
+    background: linear-gradient(45deg, #04ff04, #19ff19); /* Transition to different gradient */
+    transform: scale(1.05); /* Slightly scale up the button */
+}
+
+/* Focus effect */
+.button-boxx .animated-btnn:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 128, 0, 0.5);
+}
+
+
 
 .checkout {
     width: 100%;

@@ -103,6 +103,7 @@
                     <tr>
                       <th>Order ID</th>
                       <th>Customer Name</th>
+                      <th>Adress</th>
                       <th>Food Item</th>
                       <th>Quantity</th>
                       <th>Price_1_Potion</th>
@@ -117,6 +118,7 @@
                         <tr>
                         <td>{{$results->id}}</td>
                         <td>{{$results->user_name}}</td>
+                        <td>{{$results->street}}</td>
                         <td>{{$results->food_name}}</td>
                         <td>{{$results->quantity}}</td>
                         <td>{{$results->price}}</td>
