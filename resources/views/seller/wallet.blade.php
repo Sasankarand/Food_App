@@ -97,26 +97,62 @@
                     </div>
 
 			</div>
+
+            @php
+                $totalSales = 0; // Initialize total sales
+            @endphp
+
+                @foreach ($results as $results)
+            @php
+                $totalSales += $results->quantity * $results->price; // Calculate total for each sale and add to totalSales
+            @endphp
+                @endforeach
+
+
+            @php
+                $pending = 0; // Initialize total sales
+            @endphp
+
+            @foreach ($results2 as $results2)
+                @if($results2->status === 'Pending') <!-- Only process if status is "pending" -->
+                    @php
+                        $pending += $results2->quantity * $results2->price; // Calculate total for each pending sale and add to totalSales
+                    @endphp
+                @endif
+            @endforeach
+
+            @php
+                $confirmed = 0; // Initialize total sales
+            @endphp
+
+            @foreach ($results3 as $results3)
+                @if($results3->status === 'Success') <!-- Only process if status is "pending" -->
+                    @php
+                        $confirmed += $results3->quantity * $results3->price; // Calculate total for each pending sale and add to totalSales
+                    @endphp
+                @endif
+            @endforeach
+
             <div class="wallet-container">
                 <h1>Wallet Details</h1>
 
 
                 <div class="wallet-summary">
-                  <div class="card">
-                    <h2>Total Sales</h2>
-                    <p>Rs:7,500.00</p>
-                  </div>
+                    <div class="card">
+                        <h2>Total Sales</h2>
+                            <p>Rs: {{ number_format($totalSales, 2) }}</p> <!-- Display formatted total sales -->
+                    </div>
                   <div class="card">
                     <h2>Orders Completed</h2>
-                    <p>15</p>
+                    <p>{{$count}}</p>
                   </div>
                   <div class="card">
                     <h2>Pending Payments</h2>
-                    <p>Rs:5000.00</p>
+                    <p>Rs: {{ number_format($pending, 2) }}</p>
                   </div>
                   <div class="card">
-                    <h2>Refunds</h2>
-                    <p>Rs:2500.00</p>
+                    <h2>Confirmed Payments</h2>
+                    <p>Rs: {{ number_format($confirmed, 2) }}</p>
                   </div>
                 </div>
 
@@ -126,30 +162,24 @@
                   <thead>
                     <tr>
                       <th>Transaction ID</th>
+                      <th>Customer Name</th>
                       <th>Date</th>
                       <th>Amount</th>
                       <th>Status</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>101</td>
-                      <td>2024-10-20</td>
-                      <td>Rs:300.00</td>
-                      <td>Completed</td>
+
+                    @foreach ($results1 as $results1)
+                        <tr>
+                        <td>{{$results1->id}}</td>
+                        <td>{{$results1->user_name}}</td>
+                        <td>{{$results1->created_at}}</td>
+                        <td>{{$results1->quantity*$results1->price}}</td>
+                        <td>{{$results1->status}}</td>
                     </tr>
-                    <tr>
-                      <td>102</td>
-                      <td>2024-10-21</td>
-                      <td>Rs:500.00</td>
-                      <td>Pending</td>
-                    </tr>
-                    <tr>
-                      <td>103</td>
-                      <td>2024-10-22</td>
-                      <td>Rs:750.00</td>
-                      <td>Refunded</td>
-                    </tr>
+                    @endforeach
+
 
                   </tbody>
                 </table>

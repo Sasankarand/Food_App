@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+use App\Models\Cart;
 use App\Models\Food;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,11 +20,114 @@ class SellerController extends Controller
     }
 
     public function orders(){
-        return view("seller.orders");
+        $vendor_id=Auth::user()->id;
+        $results = Cart::where('cartvendor_id', $vendor_id)
+            ->join('users', 'carts.user_id', '=', 'users.id')
+            ->join('food', 'carts.food_id', '=', 'food.id')
+            ->select(
+                'users.name as user_name',
+                'food.name as food_name',
+                'food.vendor_name',
+                'food.price',
+                'food.image',
+                'carts.quantity',
+                'carts.created_at',
+                'carts.id',
+                'carts.status',
+                'users.phone_number',
+                'users.street'
+            )
+
+            ->get();
+
+
+        return view("seller.orders",compact("results"));
     }
 
     public function wallet(){
-        return view("seller.wallet");
+        $vendor_id=Auth::user()->id;
+        $results = Cart::where('cartvendor_id', $vendor_id)
+            ->join('users', 'carts.user_id', '=', 'users.id')
+            ->join('food', 'carts.food_id', '=', 'food.id')
+            ->select(
+                'users.name as user_name',
+                'food.name as food_name',
+                'food.vendor_name',
+                'food.price',
+                'food.image',
+                'carts.quantity',
+                'carts.created_at',
+                'carts.id',
+                'carts.status',
+                'users.phone_number',
+                'users.street'
+            )
+
+            ->get();
+
+            $results1 = Cart::where('cartvendor_id', $vendor_id)
+            ->join('users', 'carts.user_id', '=', 'users.id')
+            ->join('food', 'carts.food_id', '=', 'food.id')
+            ->select(
+                'users.name as user_name',
+                'food.name as food_name',
+                'food.vendor_name',
+                'food.price',
+                'food.image',
+                'carts.quantity',
+                'carts.created_at',
+                'carts.id',
+                'carts.status',
+                'users.phone_number',
+                'users.street'
+            )
+
+            ->get();
+
+            $results2 = Cart::where('cartvendor_id', $vendor_id)
+            ->join('users', 'carts.user_id', '=', 'users.id')
+            ->join('food', 'carts.food_id', '=', 'food.id')
+            ->select(
+                'users.name as user_name',
+                'food.name as food_name',
+                'food.vendor_name',
+                'food.price',
+                'food.image',
+                'carts.quantity',
+                'carts.created_at',
+                'carts.id',
+                'carts.status',
+                'users.phone_number',
+                'users.street'
+            )
+
+            ->get();
+
+            $results3 = Cart::where('cartvendor_id', $vendor_id)
+            ->join('users', 'carts.user_id', '=', 'users.id')
+            ->join('food', 'carts.food_id', '=', 'food.id')
+            ->select(
+                'users.name as user_name',
+                'food.name as food_name',
+                'food.vendor_name',
+                'food.price',
+                'food.image',
+                'carts.quantity',
+                'carts.created_at',
+                'carts.id',
+                'carts.status',
+                'users.phone_number',
+                'users.street'
+            )
+
+            ->get();
+
+        $count = Cart::where('cartvendor_id', $vendor_id)
+            ->join('users', 'carts.user_id', '=', 'users.id')
+            ->join('food', 'carts.food_id', '=', 'food.id')
+            ->where('carts.status', 'success') // Only rows where status is "success"
+            ->count();
+        return view("seller.wallet",compact("results","count","results1","results2","results3"));
     }
 
     public function myfoods(){
@@ -32,6 +138,9 @@ class SellerController extends Controller
 
     public function upload(Request $request){
         $data=new food;
+        $vendorid=Auth::user()->id;
+        $phone=Auth::user()->phone_number;
+        $vendorname=Auth::user()->name;
 
         //getting users email
         $mail=Auth::user()->email;
@@ -50,6 +159,9 @@ class SellerController extends Controller
         $data->price=$request->price;
         $data->description=$request->description;
         $data->email=$mail;
+        $data->phone_number=$phone;
+        $data->vendor_name=$vendorname;
+        $data->vendor_id=$vendorid;
         $data->save();
         return redirect()->back();
     }
@@ -70,6 +182,12 @@ class SellerController extends Controller
         $data->name=$request->foodname;
         $data->price=$request->price;
         $data->description=$request->description;
+        $data->save();
+        return redirect()->back();
+    }
+    public function statuspass($id){
+        $data=cart::find($id);
+        $data->status="Pending";
         $data->save();
         return redirect()->back();
     }

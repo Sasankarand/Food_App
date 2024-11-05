@@ -33,7 +33,7 @@
         </div>
         <div class="sidebar-menu">
             <span class="fas fa-heart"></span>
-            <a href="#">Favs</a>
+            <a href="{{url('/oders')}}">Orders</a>
         </div>
         <div class="sidebar-menu">
             <span class="fas fa-user"></span>

@@ -19,6 +19,7 @@
                     <div class="order-detail">
                         <p><strong>{{ session('food_detail')->name }}</strong></p>
                         <p>{{ session('food_detail')->description }}</p>
+                        <p><strong>{{ session('food_detail')->vendor_name }}</strong></p>
 
                     </div>
                     <h4 class="order-price">Rs. {{ session('food_detail')->price }}</h4>
