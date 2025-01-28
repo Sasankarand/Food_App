@@ -23,17 +23,20 @@
 
     <!-- Sidebar -->
     <nav class="sidebar">
-        <div class="sidebar-menu">
-            <span class="fas fa-search"></span>
-            <a href="#">Search</a>
-        </div>
+
         <div class="sidebar-menu">
             <span class="fas fa-home"></span>
             <a href="{{url('/userdashboard')}}">Home</a>
         </div>
+
+        <div class="sidebar-menu">
+            <span class="fas fa-search"></span>
+            <a href="{{url('/explore')}}">Explore</a>
+        </div>
+
         <div class="sidebar-menu">
             <span class="fas fa-heart"></span>
-            <a href="#">Favs</a>
+            <a href="{{url('/oders')}}">Orders</a>
         </div>
         <div class="sidebar-menu">
             <span class="fas fa-user"></span>
@@ -49,118 +52,41 @@
             <img src="Student(user)/images-banner.jpg" alt="Dashboard Banner">
         </div>
 
-        <h3 class="dashboard-title">Recommend Food For You</h3>
-        <div class="dashboard-menu">
-            <a href="#">Favorites</a>
-            <a href="#">Best Seller</a>
-            <a href="#">Near Me</a>
-            <a href="#">Promotion</a>
-            <a href="#">Top Rated</a>
-            <a href="#">All</a>
-        </div>
+
+
 
         <div class="dashboard-content">
-            <div class="dashboard-card">
-                <img class="card-image" src="Student(user)/images1.jpg" alt="Amazing Pizza">
-                <div class="card-detail">
-                    <h4>Amazing Pizza<span>$30</span></h4>
-                    <p>Lorem ipsum dolor sit</p>
-                    <p class="card-time"><span class="fas fa-clock"></span> 15-30 mins</p>
-                </div>
-            </div>
-            <div class="dashboard-card">
-                <img class="card-image" src="Student(user)/images2.jpg" alt="Fresh Salad">
-                <div class="card-detail">
-                    <h4>Fresh Salad<span>$30</span></h4>
-                    <p>Lorem ipsum dolor sit</p>
-                    <p class="card-time"><span class="fas fa-clock"></span> 15-30 mins</p>
-                </div>
-            </div>
-            <div class="dashboard-card">
-                <img class="card-image" src="Student(user)/images3.jpg" alt="Sweet Pancake">
-                <div class="card-detail">
-                    <h4>Sweet Pancake<span>$30</span></h4>
-                    <p>Lorem ipsum dolor sit</p>
-                    <p class="card-time"><span class="fas fa-clock"></span> 15-30 mins</p>
-                </div>
-            </div>
-            <div class="dashboard-card">
-                <img class="card-image" src="Student(user)/images4.jpg" alt="Well Done Steak">
-                <div class="card-detail">
-                    <h4>Well Done Steak<span>$30</span></h4>
-                    <p>Lorem ipsum dolor sit</p>
-                    <p class="card-time"><span class="fas fa-clock"></span> 15-30 mins</p>
-                </div>
-            </div>
-            <div class="dashboard-card">
-                <img class="card-image" src="Student(user)/images5.jpg" alt="Health Breakfast">
-                <div class="card-detail">
-                    <h4>Health Breakfast<span>$30</span></h4>
-                    <p>Lorem ipsum dolor sit</p>
-                    <p class="card-time"><span class="fas fa-clock"></span> 15-30 mins</p>
-                </div>
-            </div>
-            <div class="dashboard-card">
-                <img class="card-image" src="Student(user)/images6.jpg" alt="Fantastic Burger">
-                <div class="card-detail">
-                    <h4>Fantastic Burger<span>$30</span></h4>
-                    <p>Lorem ipsum dolor sit</p>
-                    <p class="card-time"><span class="fas fa-clock"></span> 15-30 mins</p>
-                </div>
-            </div>
+
+                            @foreach($data as $data)
+
+                            <form action="{{url('/addcart',$data->id)}}" method="post" class="dashboard-card">
+                                @csrf
+                                <button type="submit" style="all: unset; cursor: pointer; width: 100%;">
+                                    <div>
+                                        <img class="card-image" src="foodimage/{{$data->image}}" alt="Image of {{$data->name}}">
+                                        <div class="card-detail">
+                                            <h4>{{$data->name}} <span>Rs. {{$data->price}}.00</span></h4>
+                                            <p>{{$data->description}}</p>
+                                            <p class="card-time"><span class="fas fa-clock"></span> {{ $data->vendor_name}}</p>
+                                        </div>
+                                    </div>
+                                </button>
+                            </form>
+
+
+                            @endforeach
+
+
+
+
+
         </div>
     </div>
 
     <!-- Order Dashboard -->
-    <div class="dashboard-order">
-        <h3>Order Menu</h3>
-        <div class="order-address">
-            <p>Address Delivery</p>
-            <h4>221 B Baker Street, London</h4>
-        </div>
-        <div class="order-time">
-            <span class="fas fa-clock"></span> 30 mins <span class="fas fa-map-marker-alt"></span> 2km
-        </div>
-        <div class="order-wrapper">
-            <div class="order-card">
-                <img class="order-image" src="Student(user)/images4.jpg" alt="Order Image">
-                <div class="order-detail">
-                    <p>Lorem ipsum dolor sit amet</p>
-                    <i class="fas fa-times"></i><input type="text" value="1">
-                </div>
-                <h4 class="order-price">$35</h4>
-            </div>
-            <div class="order-card">
-                <img class="order-image" src="Student(user)/images5.jpg" alt="Order Image">
-                <div class="order-detail">
-                    <p>Lorem ipsum dolor sit amet</p>
-                    <i class="fas fa-times"></i><input type="text" value="1">
-                </div>
-                <h4 class="order-price">$40</h4>
-            </div>
-            <div class="order-card">
-                <img class="order-image" src="Student(user)/images6.jpg" alt="Order Image">
-                <div class="order-detail">
-                    <p>Lorem ipsum dolor sit amet</p>
-                    <i class="fas fa-times"></i><input type="text" value="1">
-                </div>
-                <h4 class="order-price">$50</h4>
-            </div>
-        </div>
-        <hr class="divider">
-        <div class="order-total">
-            <p>Subtotal<span>$156</span></p>
-            <p>Tax (10%)<span>$15.6</span></p>
-            <p>Delivery fee<span>$3</span></p>
-            <div class="order-promo">
-                <input class="input-promo" type="text" placeholder="Apply Voucher">
-                <button type="button" class="button-promo">Find</button>
-            </div>
-            <hr class="divider">
-            <p>Total <span>$174.6</span></p>
-        </div>
-        <button type="button" class="checkout">Checkout</button>
-    </div>
+
+    @include('user.ordercart')
+    
 </body>
 </html>
 

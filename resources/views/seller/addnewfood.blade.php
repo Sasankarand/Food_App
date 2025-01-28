@@ -108,7 +108,7 @@
                   <input type="text" name="foodname" required>
 
                   <label for="description">Description:</label>
-                  <textarea id="description" name="description" rows="4" required></textarea>
+                  <textarea name="description" rows="4" required></textarea>
 
                   <label for="price">Price:</label>
                   <input type="number" id="price" name="price" required>

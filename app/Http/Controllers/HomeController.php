@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Food;
 
 class HomeController extends Controller
 {
@@ -21,7 +22,10 @@ class HomeController extends Controller
             return view("seller.sellerhome");
         }
         else{
-            return view(view:"user.userdashboard");
+            $data=food::all();
+            $city=Auth::user()->city;
+            $street=Auth::user()->street;
+            return view("user.userdashboard",compact("data","city","street"));
         }
 
 }
